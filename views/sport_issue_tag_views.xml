@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+    
+    <!-- sport.issue.tag tree view-->
+    <record id="sport_issue_tag_view_tree" model="ir.ui.view">
+        <field name="name">sport_issue_tag.view.tree</field>
+        <field name="model">sport.issue.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Tags" editable="bottom">
+                <field name="name" />
+                <field name="color" />
+            </tree>
+        </field>
+    </record>
+    
+    <!-- sport.issue.tag form view-->
+    <record id="sport_issue_tag_view_form" model="ir.ui.view">
+        <field name="name">sport_issue_tag.view.form</field>
+        <field name="model">sport.issue.tag</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="color" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- sport.issue.tag action view-->
+    <record id="action_sport_tag_issue" model="ir.actions.act_window">
+        <field name="name">Sport Issue Tag</field>
+        <field name="res_model">sport.issue.tag</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new sport issue tag
+            </p>
+        </field>
+    </record>
+ 
+ </odoo>
+ 

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Model sport issue tree view-->
+        <record id="sport_issue_view_tree" model="ir.ui.view">
+            <field name="name">sport_issue.view.tree</field>
+            <field name="model">sport.issue</field>
+            <field name="arch" type="xml">
+                <tree string="Issues">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name" />
+                    <field name="date" optional="show"/>
+                    <field name="user_id" optional = "hide"/>
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Model sport issue form view-->
+        <record id="sport_issue_view_form" model="ir.ui.view">
+            <field name="name">sport_issue.view.form</field>
+            <field name="model">sport.issue</field>
+            <field name="arch" type="xml">
+                <form string="Issues">
+                    <header>
+                         <field name="state" options="{'clickable':1}" widget="statusbar" statusbar_visible="draft,open,done"/>
+                         <button string="To draft" invisible="state in ('draft')" name="action_draft" type="object" class="btn-primary"/>
+                         <button string="To open" invisible="state in ('open')" name="action_open" type="object" class="btn-secondary"/>
+                         <button string="Done" invisible="state in ('done')" 
+                            name="action_done" type="object" class="btn-success"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Issue Name" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="user_id" />
+                                <field name="clinic_id" />
+                            </group>
+                            <group>
+                                <field name="date" />
+                                <field name="tag_ids"  widget="many2many_tags"/>
+                                <field name="assistance" />
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page name="description" string="Description">
+                                <field name="description" />
+                            </page>
+                            <page name="solution" string="Solution">
+                                <field name="solution" />
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action view for sport.issue model-->
+        <record id="action_sport_issue" model="ir.actions.act_window">
+            <field name="name">Sport Issues</field>
+            <field name="res_model">sport.issue</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new sport issue
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

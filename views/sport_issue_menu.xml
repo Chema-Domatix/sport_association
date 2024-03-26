@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem
+            id="sport_menu"
+            name="Sport Association"
+            sequence="10">
+        </menuitem>
+
+        <menuitem
+            id="sport_issue_menu"
+            name="Sport Issues"
+            action="sports_association_chema.action_sport_issue"
+            parent="sports_association_chema.sport_menu"
+            sequence="10"/>
+
+        <menuitem
+            id="sport_clinic_menu"
+            name="Sport Clinics"
+            action="sports_association_chema.action_sport_clinic"
+            parent="sports_association_chema.sport_menu"
+            sequence="10" />
+        
+       <menuitem
+            id="sport_issue_tag_menu"
+            name="Sport Tag"
+            action="sports_association_chema.action_sport_tag_issue"
+            parent="sports_association_chema.sport_menu"
+            sequence="10"/>
+
+    </data>
+</odoo>
